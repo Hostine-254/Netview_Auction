@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register Yourself</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+        <link href="https://fonts.googleapis.com/css?family=Concert+One|Oswald|Quicksand&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <img src="../static/img/logo2.png" alt="">
+        <div class="container2">
+            <h2>Create Account</h2>
+                <form class="input-grp" action="register" method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="input-field" placeholder="First Name" name="fname" required>
+                    <input type="text" class="input-field"placeholder="Last Name" name="lname" required>
+                    <input type="text" class="input-field"  placeholder="contact no/phone number" pattern="[0-9][0-9]{9}" name="contact" required>
+                    <input type="text" class="input-field" placeholder="Username" name="name" required>
+                    <input type="email" class="input-field" placeholder="Email-id" name="email" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" name="p1" required>
+                    <input type="password" class="input-field" placeholder="Re Enter Password" name="p2" required>
+                    <div class="send1">
+                        <input type="submit" class="btn" value="submit">
+                        <input type="reset" class="btn" value="Reset">
+                    </div>
+                    <div class="terms1">
+                        <h5>By creating an account, you agree to NetView's 
+                            <a href="#" >Conditions of Use</a> and <a href="#" >Privacy Notice.</a>.</h5>
+
+                    </div>
+                    <div class="are-acc">
+                        <h5>Already an account holder? <a href=" " >Sign In</a> </h5>
+
+                    </div>
+                </form>
+                {% for m in messages %}
+			<center><font color="red"><h2 id="h33">{{m}}</h2></font></center>
+		{% endfor %}
+        </div>
+    </body>
+</html>

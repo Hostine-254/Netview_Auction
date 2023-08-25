@@ -1,0 +1,30 @@
+{% extends 'header_1.html' %}
+{% block content %}
+<center>
+    <div id="container7">
+            <div class="sub-input3">
+                <h4 class="cont-input">First name :</h4>
+                <h4 class="cont-value">{{details.first_name}}</h4>
+            </div>
+            <div class="sub-input3">
+                <h4 class="cont-input">Last name :</h4>
+                <h4 class="cont-value">{{details.last_name}}</h4>
+            </div>
+            <div class="sub-input3">
+                <h4 class="cont-input">Contact no :</h4>
+                <h4 class="cont-value">{{contact}}</h4>
+            </div>
+            <div class="sub-input3">
+                <h4 class="cont-input">User name : </h4>
+                <h4 class="cont-value">{{details.username}}</h4>
+            </div>
+            <div class="sub-input3">
+                <h4 class="cont-input">Email-id :</h4>
+                <h4 class="cont-value">{{details.email}}</h4>
+            </div>
+              
+    </div>       
+    </center>
+</div>
+    
+{% endblock %}

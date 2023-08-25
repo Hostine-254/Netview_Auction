@@ -1,0 +1,49 @@
+{% extends 'header_1.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="sub_prod">
+            <table border="0">
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    
+                    <td>Name : </td>
+                    <td><b>{{item.name}}</b></td>
+                </tr>
+                <tr>
+                    <td class="right">Category :</td>
+                    <td class="pul_1">{{item.tag}}</td>
+                </tr>
+                <tr>
+                    
+                    <td width="30%">Condition : </td>
+                    <td class="pul_1" width="60%">{{item.short_description}}</td>
+                </tr>
+                <tr>
+                    <td>Base Price :</td>
+                    <td class="pul_1"><span>Shs {{item.basePrice}}</span></td>
+                </tr>
+                <tr>
+                    <td>Current Price :</td>
+                    <td class="pul_1"> <span>Shs {{item.currentPrice}}</span></td>
+                </tr>
+                <tr>
+            </table>
+            <div class="profile_1">
+                    <div class="prof_image"><img src={{item.profile.url}} style="width: 320px; border-radius: 8px; margin-top: 20px; padding-left: 20px;"></div>
+            </div>
+    </div>
+
+            <div class="profile_detail">
+                <form action="validate">
+                    <h4 class="edit_1">Enter your Bid Amount:<input type="hidden" name="iid" value={{item.id}}></h4>
+                    <input class="input_1" type="number" name="bidrs" class="field" placeholder="Enter your amount" min={{item.currentPrice}}>
+                    <input class="input_2" type="submit" class="btt third" value="Next">
+                </form>
+            </div>
+        </form>
+    </div>
+    {% endblock %}

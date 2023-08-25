@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bid Mafia : : Login</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../static/css/style1.css">
+        <link href="https://fonts.googleapis.com/css?family=Concert+One|Oswald|Quicksand&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <img src="../static/img/logo2.png" alt="">
+        <div class="container">
+            <h3>Sign In</h3>
+                    <form  class="input-grp" method="post">
+                    {% csrf_token %}
+                    <input type="text" class="input-field" placeholder="User Name" name="un" required>
+                    <input type="password" class="input-field" placeholder="Your Password" name="pa" required>
+                    <input type="checkbox" class="chech-box"><span>Remember Password</span>
+                    <button type="submit" class="submit-btn">LogIn</button>
+                    <div class="forget-btn"><a href="password-reset">Forgot your Password?</a></div>
+                    </form>
+        </div>
+                    
+                    <div class="niche">
+                        <h5>New to NetView?</h5>
+                         <a href="register" >Create your NetView  account</a>
+                    </div>
+                 
+                {% for m in messages %}
+                <center><font color="red"><h3 id="h33">{{m}}</h3></font></center>
+            {% endfor %}           
+        </div>
+    </body>
+</html>

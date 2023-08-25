@@ -1,0 +1,123 @@
+{% extends 'header_1.html' %}
+{% block content %}
+
+<div class="container6" >
+    {% load static %}
+    
+    
+    <div class="head1">
+    <b><h4>your items in past</h4></b>
+    </div>
+        
+    {% for i in pitem%}
+    <div class="sub-cont1">
+    <center>
+        <div class="column2 detail6">
+            <h3><b>{{i.name}}</b></h3>
+    
+            <h4 id="cond1">{{i.short_description}}</h4>
+        
+            <h4>Current Price : <span id="span1">Shs {{i.currentPrice}}</span></h4>
+
+            <h4>Base Price : <span id="span1">Shs {{i.basePrice}}</span></h4>
+        
+            <h4>Auction Date : <span id="span1">{{i.start_date}}</span></h4>
+
+            <h4>Sold status : <span id="span1">{{i.sold}}</span></h4>
+        </div>
+        <div class="column2 single-img">
+            
+            <img class="img6" src="{{i.profile.url}}" alt="" style="width: 340px; margin-top: 20px;">
+        </div>
+
+    </center>
+    </div>
+    {%endfor%}
+
+<hr>
+
+
+    <div class="head1">
+        <b><h4>Your live items</h4></b>
+        </div>
+
+
+    {% for i in litem%}
+    <div class="sub-cont1">
+    <center>
+        <div class="column2 detail6">
+        
+            <h3><b>{{i.name}}</b>
+        
+            <h4 id="cond1">{{i.short_description}}</h4>
+        
+            <h4>Current Price : <span id="span1">Shs {{i.currentPrice}}</span></h4>
+            <h4>Base Price : <span id="span1">Shs {{i.basePrice}}</span></h4>
+    
+            <h4>Auction Date : <span id="span1">{{i.start_date}}</span></h4>
+    
+            <h4>Sold status : <span id="span1">{{i.sold}}</span></h4>
+        </div>
+        <div class="column2 single-img">
+        <img class="img6" src="{{i.profile.url}}"alt="" style="width: 330px; border-radius: 8px; margin-bottom: 10px;">
+        </div>
+    </center>
+    </div>
+    {%endfor%}
+<hr>
+<div class="head1">
+        <b><h4>Your items in future</h4></b>
+        </div>
+<div class="sub-cont1">
+    {% for i in fitem%}
+    <center>
+        <div class="column2 detail6">
+            <h3><b>{{i.name}}</b></h3>
+    
+            <h4 id="cond1">{{i.short_description}}</h4>
+        
+            <h4>Current Price :<span id="span1">Shs {{i.currentPrice}}</span></h4>
+            <h4>Base Price : <span id="span1">Shs {{i.basePrice}}</span></h4>
+    
+            <h4>Auction Date : <span id="span1">{{i.start_date}}</span></h4>
+        
+            <h4>Sold status : <span id="span1">{{i.sold}}</span></h4>
+        </div>
+        <div class="column2 single-img">
+            <img src="{{i.profile.url}}" class="img" alt="" style="width: 340px; margin-bottom: 10px;">
+        </div>
+    
+    </center>
+    {%endfor%}
+</div>
+<hr>
+    <div class="head1">
+        <b><h4>Item that you have bided </h4></b>
+        </div>
+
+    {% for i in biddeditem%}
+    <div class="sub-cont1">
+    <center>
+        <div class="column2 detail6">
+            <h3><b>{{i.name}}</b></h3>
+        
+            <h4 id="cond1">{{i.short_description}}</h4>
+        
+            <h4>Current Price : <span id="span1">Shs {{i.currentPrice}}</span></h4>
+            <h4>Base Price : Shs <span id="span1">{{i.basePrice}}</span></h4>
+        
+            <h4>Auction Date : <span id="span1">{{i.start_date}}</span></h4>
+        
+            <h4>Sold status : <span id="span1">{{i.sold}}</span></h4>
+        </div>
+        <div class="column2 single-img">
+            <img src="{{i.profile.url}}" class="img" alt="" style="width: 340px; margin-bottom: 10px;">
+        </div>
+    </center>
+    </div>
+    {%endfor%}
+
+    <hr>
+    <marquee behavior="alternate" ><h3>Bid Now And Grab More!!!</h3></marquee>
+</div>
+{% endblock %}

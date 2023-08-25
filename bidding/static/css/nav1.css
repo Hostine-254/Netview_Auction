@@ -1,0 +1,133 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin-top: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 50%;
+    height: 880px;
+    padding:10px;
+    border-radius: 10px;
+}
+.input-grp{
+    top: 30px;
+    left: 40px;
+    position: absolute;
+    width: 100%;
+    transition: .5s;
+}
+.field{
+    width: 70%;
+    padding: 0.2rem 0.3rem;
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: rgb(247, 247, 247);
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: .3s;
+}
+
+.field:hover{
+    background-color: rgba(224, 224, 224, 0.904);
+}
+
+.field:focus{
+    background-color: #fff;
+    border: 2px solid rgba(30, 85, 250, 0.47);
+}
+#spec1{
+    height: 44px;
+}
+.desc1{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.btt {
+    box-sizing: border-box;
+     -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none; 
+    background: linear-gradient(to right, #209471, #91e1e4);
+    border: 2px solid #e74c3c;
+    border-radius: 0.0em;
+    color: #e74c3c;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 0.7em 1.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    /* font-family: 'Rubik', sans-serif; */
+   
+
+    font-family: 'Josefin Sans', sans-serif;
+    /* font-family: 'Audiowide', sans-serif; */
+    font-weight: 700;
+  }
+  .btt:hover, .btt:focus {
+    color: rgb(0, 0, 0);
+    outline: 0;
+  }
+  
+.third {
+    border-color: #bbbbbb;
+    border-width: 1px;
+    border-radius: 5px;
+    color: #000000;
+    
+    box-shadow: 0 0 40px 40px #ffffff inset, 0 0 0 0 #d8efff;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+  }
+  .third:hover {
+      
+      border: 0px;
+    box-shadow: 0 0 10px 0 #fffffff8 inset, 0 0 5px 1px #022741;
+  }
+  .container ::placeholder{
+    position: absolute;
+    left: 20%;
+}
+.input-grp input{
+    color: #209471;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 642px){
+    .container{
+        width: 80%;
+        height: 900px;
+        border: none;
+    }
+    .input-grp{
+        width: 110%;
+        left: -27%;
+    }
+    .field{
+        width: 100%;
+        
+    }
+    .btt{
+        margin-left: 100px;
+    }
+    .desc1{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Bid Mafia</title>
+        <!--<link rel="stylesheet" href="../static/css/nav1.css">-->
+        <link rel="stylesheet" href="../static/css/home1.css">
+        <link rel="stylesheet" href="../static/css/nav1.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="css/font-awesome.css">
+    </head>
+    <body>
+        <section id="header">
+            <a href="#"><img src="../static/img/logo2.png" class="logo"></a>
+          <div>
+            <ul id="navibar">
+                <li><a href="http://127.0.0.1:8000/home">Home</a></li>
+                <li><a href="logout">Logout</a></li>
+                <!--<li><a href="cart.html"><i class="fa fa-cart-shopping"></i></i></a></li>-->
+            </ul>
+            <div class="user1">
+                {% if request.user.is_authenticated %}
+                <p >Welcome  <span>{{request.user}}</span></p>
+                {% endif %}
+            </div>
+              
+          </div>
+            
+          <div class="nav-search">
+            <select >
+                <option >All</option>
+            </select>
+            <input placeholder="Search NetView" class="search-input">
+            <div class="search-icon">
+            <i class="fa-solid fa-magnifying-glass" style="color: #0b7d7f;"></i>
+            </div>
+    
+          </div>
+    
+          <div class="toggle_btn">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+            <div class="dropdown_menu ">
+                <li><a href="http://127.0.0.1:8000/home"">Home</a></li>
+                <li><a href="logout">Logout</a></li>
+            </div>
+        </section>
+        <div class="container">
+        <form class="input-grp" action="additem" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <center>
+            <table border="0">
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1" class="right">Item name : </td>
+                    <td><input type="text" class="field" name="iname" placeholder="Enter item name" required></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    
+                    <td class="desc1">profile image : </td>
+                    <td><input type="file" class="field" name="img" accept="image/*" required></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    
+                    <td class="desc1" width="30%">Optional image1 : </td>
+                    <td width="60%"><input type="file" class="field" name="img1" accept="image/*" ></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">Optional image2 : </td>
+                    <td><input type="file" class="field" name="img2" accept="image/*" ></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">Optional image3 : </td>
+                    <td><input type="file" class="field" name="img3" accept="image/*" ></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">Optional image4 : </td>
+                    <td><input type="file" class="field" name="img4" accept="image/*" ></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">Category : </td>
+                    <td><input type="text" class="field" name="itag" placeholder="Enter item category" size="53" required></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">Short discription : </td>
+                    <td><input type="text" class="field" maxlength="50" name="sdis" placeholder="Enter Short Description" size="53" required></textarea></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">long discription : </td>
+                    <td><textarea rows="5" cols="50" id="spec1" class="field" name="ldis" placeholder="Enter Long Description"></textarea></td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">
+                        Set base price :
+                    </td>
+                    <td>
+                        <input type="text" class="field" name="iprice" placeholder="Enter price in numbers" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+                    <td class="desc1">
+                        Auction date :
+                    </td>
+                    <td>
+                        <input type="date" name="s_date" class="field" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="20px"></td>
+                    <td height="20px"></td>
+                </tr>
+                <tr>
+					<td colspan="2" align="center" ><font color="white"><input type="submit" class="btt third" value="Upload"></td>
+                </tr>
+                <tr>
+                    <td height="60px"></td>
+                    <td height="60px"></td>
+                </tr>
+            </form>
+                <tr>
+                    <td>{% for m in messages %}
+                        <center><font color="red"><h2>{{m}}</h2></font></center>
+                    {% endfor %}</td>
+                    <td></td>
+                </tr>
+            </table>
+        
+        </center>
+    </div>
+    
+    <section id="product1" class="section-p1">
+        <div class="banner2">
+            <h3>In Association with</h3>
+            <img src="../media/pics/bid_journey auctions.jpg" alt="">
+        </div>
+        </section>
+    
+        <footer class="section-p1">
+            <div class="col">
+                <img src="../static/img/logo2.png" alt="">
+                <h4>Contact</h4>
+                <p><strong>Address: </strong>Luthuli Road, Lane 4, Nairobi</p>
+                <p><strong>Phone:</strong> +25472288543 /(+25700225481)</p>
+                <p><strong>Hours:</strong>0800hrs - 1700hrs, Mon - Sat</p>
+                <div class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-youtube"></i>
+    
+                    </div>
+    
+                </div>
+            </div>
+            <div class="col">
+                <h4>My Account</h4>
+                {% if request.user.is_authenticated %}
+                <a href="logout">logout</a>
+                {% else %}
+                <a href="#">Sign in</a>
+                {% endif %}
+                <a href="#">Track my mechandise</a>
+                <a href="#">Help</a>
+    
+            </div>
+            <div class="install">
+                <h4>Install App</h4>
+                <p>From App Store or From Google Play</p>
+                <div class="row">
+                    <img src="../static/img/google-play.png" alt="app store" style="width: 180px;height: 150px; margin-left: 45px;" class="goo">
+                    <img src="../static/img/app-store.png" alt="play google" style="width: 170px; margin-left: 55px;">
+                </div>
+    
+            </div>
+            <div class="copyright">
+                <p> Copyright @ 2023, NetView All rights Reserved</p>
+            </div>
+    
+        </footer>
+
+      <script src="../static/js/home1.js"></script>
+    </body>
