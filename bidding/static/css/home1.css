@@ -201,6 +201,8 @@ transform: translateY(-50%);
 z-index: 20;
 }
 #hero .content h3{
+padding-top: 70px;
+padding-bottom: -20px;
 padding-left: 100px;
 color: gainsboro;
 font-size: 30px;
@@ -424,6 +426,7 @@ footer .copyright{
     flex-direction: column;
     text-align: center;
     justify-content: center;
+    z-index: -99;
     padding: 14px;
 }
 

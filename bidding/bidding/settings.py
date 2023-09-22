@@ -25,7 +25,7 @@ SECRET_KEY = 'vhzy_m5%i=mo*cq4+j$i5-2)kc_9s+%&t5s+dkz5ck_%m5dhhs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['248e-80-240-202-238.ngrok-free.app','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['d705-80-240-202-236.ngrok-free.app','localhost','127.0.0.1']
 
 
 # Application definition

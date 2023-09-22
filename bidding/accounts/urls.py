@@ -7,7 +7,8 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('',views.login,name="login"),
+    path('',views.homepage,name="homepage"),
+    path('login',views.login,name="login"),
     path('register',views.register,name="register"),
     path('home',views.home,name="home"),
     path('logout',views.logout,name="logout"),

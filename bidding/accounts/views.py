@@ -13,6 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @csrf_exempt
+def homepage(request):
+    return render(request,'home1.html')
+
+@csrf_exempt
 def login(request):
     if request.method == 'POST':
         uname = request.POST.get('un','')
@@ -42,7 +46,7 @@ def register(request):
         contact = request.POST['contact'],
         if p1 == p2:
             if User.objects.filter(email=mail).exists():
-                messages.info(request,"Already an User with this Email")
+                messages.info(request,"Already a User with this Email")
                 return redirect('register')
             elif User.objects.filter(username=name).exists():
                 messages.info(request,"Already an User with this Username")
@@ -57,9 +61,9 @@ def register(request):
                 to      = mail  
                 res     = send_mail(subject, msg, "hostineamwata2020@gmail.com", [to])
                 if res == 1:
-                    return redirect('/')
+                    return redirect('home')
                 else:
-                    messages.info(request,"Some went wrong")
+                    messages.info(request,"Something went wrong")
                     return redirect('register')
         else:
             messages.info(request,"Password does not match")
@@ -108,7 +112,7 @@ def sendMailTowinners(request):
             to      = winnermail  
             res     = send_mail(subject, msg, "hostineamwata2020@gmail.com", [to])
             if res ==1:
-                print ("mail sended to winner")
+                print ("mail sent to winner")
             else:
                 print("something went wrong while sending mail to winner")
             
@@ -119,7 +123,7 @@ def sendMailTowinners(request):
             to      = i.ownermail  
             res     = send_mail(subject, msg, "hostineamwata2020@gmail.com", [to])
             if res ==1:
-                print ("mail sended to seller")
+                print ("mail sent to seller")
             else:
                 print("something went wrong while sending mail to seller")
             i.sendwinmail="sended"
