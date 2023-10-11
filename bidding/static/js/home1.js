@@ -11,7 +11,8 @@ toggleBtn.onclick = function (){
     : 'fa-solid fa-bars'
 }
 
-var navbar = document.getElementById("header")
+var lastScrollTop = 0;
+    navbar = document.getElementById("header");
 
 window.onscroll = function(){
     if(window.pageYOffset >= navbar.offsetTop){

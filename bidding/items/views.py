@@ -75,7 +75,7 @@ def validate(request):
     else:
         mail = item_obj.ownermail
         subject = "Online Bidding"  
-        msg     = "Congratulations your item is bidded by "+bidder.email+", By INR rs = "+value+". Contact your buyer by email Thank You for using our app."
+        msg     = "Congratulations your item is bidded by "+bidder.email+", with Shs = "+value+". Contact your buyer by email Thank You for using our app."
         to      = mail  
         res     = send_mail(subject, msg, "bidmafia007@gmail.com", [to])
 

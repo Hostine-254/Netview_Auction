@@ -1,6 +1,7 @@
 body{
     width: 100%;
     margin: 0;
+    background: linear-gradient(to bottom, white, #c4ebd6);
 }
 
 /* Header starts */
@@ -82,24 +83,34 @@ body{
     width: 50%;
     height: 50px;
 }
+
 .nav-search .search-input{
-    width: 84%;
+    position: absolute;
+    width: 90%;
+    height: 50px;
     border: none;
     background-color: #dfeceb;
     box-shadow: 0 5px 15px rgba(5, 7, 0, 2.0);
 }
+
 .nav-search .search-icon{
-    position: relative;
+    position: inherit;
+    right: calc(0vw);
     width: 40px;
+    height: 50px;
     background: #E3E6F3;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
 }
-.nav-search .search-icon i{
-    position: absolute;
-    top: 20px;
-    left: 10px;
+
+.nav-search .search-icon #m-glass{
+    border: none;
+    padding-left: 11px;
+    background-color: #E3E6F3;
+    position: relative;
+    top: 15px;
 }
+
 .nav-search select{
     background-color:#E3E6F3;
     width: 50px;
@@ -146,7 +157,7 @@ overflow: hidden;
 transition: width 0.6s cubic-bezier(0.175, 0.855, 0.32, 1.275);
 }
 .dropdown_menu.open{
-width: 210px;
+width: 270px;
 }
 .dropdown_menu li{
 padding: 1rem;
@@ -243,10 +254,13 @@ display: block;
 
   #product1{
     text-align: center;
+    margin-left: 2%;
+    margin-right: 1.5%;
 }
 #product1 .pro-container{
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -30px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -256,13 +270,14 @@ display: block;
 #product1 .pro{
     width: 23%;
     min-width: 250px;
-    padding: 10px 12px;
+    padding: 1px 5px;
     border: 0px solid #cce7d0;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 55px 0;
     transition: 0.2s ease;
+    background-color: #fff;
 }
 #product1 .pro:hover{
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.18);
@@ -297,6 +312,10 @@ display: block;
 }
 #product1 .pro .des h4 span{
     font-weight: 700;
+}
+.grade1{
+    background: linear-gradient(to bottom, #c4ebd6, black);
+
 }
 .banner {
     margin-top: 30px;
@@ -956,7 +975,7 @@ footer .copyright{
         left: 0%;
     }
     .nav-search .search-input{
-        width: 60%;
+        width: 80%;
     }
 
     #prodetails{
@@ -1035,7 +1054,7 @@ footer .copyright{
   }
   @media screen and (max-width: 390px){
     .nav-search{
-        width: 123%;
+        width: 100%;
         top: 90px;
         left: 0%;
     }

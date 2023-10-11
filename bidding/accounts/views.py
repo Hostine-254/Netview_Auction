@@ -17,6 +17,10 @@ def homepage(request):
     return render(request,'home1.html')
 
 @csrf_exempt
+def search(request):
+    return render(request,'search.html', {})
+
+@csrf_exempt
 def login(request):
     if request.method == 'POST':
         uname = request.POST.get('un','')

@@ -1,0 +1,38 @@
+{% extends 'header_1.html' %}
+{% block content %}
+<section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <p>This Weeks' available collections</p>
+    <div class="pro-container">
+{% for i in items%}
+        <div class="pro">
+            <a href="items/prod?id={{i.id}}"><img src="{{i.profile.url}}" style="width: 260px;"></a>
+            <div class="des">
+                <span>{{i.tag}}</span>
+                <h5>{{i.name}}</h5>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>Current price : <font color="orange">{{i.currentPrice}}</font></h4>
+
+            </div>
+
+        </div>
+{% endfor %}
+
+    </div>
+    
+
+</section>
+ 
+<section id="pagination" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
+
+</section>
+    
+{% endblock %}

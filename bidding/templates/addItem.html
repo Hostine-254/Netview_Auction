@@ -31,10 +31,16 @@
             <select >
                 <option >All</option>
             </select>
-            <input placeholder="Search NetView" class="search-input">
+            <form id="formku" class="search1" action="{% url 'search' %}" method="post">
+                {% csrf_token %}
+            <input type="search" placeholder="Search NetView"class="search-input">
+            
+            </form>
+            
             <div class="search-icon">
-            <i class="fa-solid fa-magnifying-glass" style="color: #0b7d7f;"></i>
+                <button id="m-glass" form="formku"><i class="fa-solid fa-magnifying-glass" style="color: #0b7d7f; position: relative;" ></i></button>
             </div>
+    
     
           </div>
     
@@ -178,51 +184,52 @@
         </div>
         </section>
     
-        <footer class="section-p1">
-            <div class="col">
-                <img src="../static/img/logo2.png" alt="">
-                <h4>Contact</h4>
-                <p><strong>Address: </strong>Luthuli Road, Lane 4, Nairobi</p>
-                <p><strong>Phone:</strong> +25472288543 /(+25700225481)</p>
-                <p><strong>Hours:</strong>0800hrs - 1700hrs, Mon - Sat</p>
-                <div class="follow">
-                    <h4>Follow Us</h4>
-                    <div class="icon">
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-pinterest-p"></i>
-                        <i class="fab fa-youtube"></i>
-    
+        <div class="grade1">
+            <footer class="section-p1">
+                <div class="col">
+                    <img src="../static/img/logo2.png" alt="">
+                    <h4>Contact</h4>
+                    <p><strong>Address: </strong>Luthuli Road, Lane 4, Nairobi</p>
+                    <p><strong>Phone:</strong> +25472288543 /(+25700225481)</p>
+                    <p><strong>Hours:</strong>0800hrs - 1700hrs, Mon - Sat</p>
+                    <div class="follow">
+                        <h4>Follow Us</h4>
+                        <div class="icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-pinterest-p"></i>
+                            <i class="fab fa-youtube"></i>
+        
+                        </div>
+        
                     </div>
-    
                 </div>
-            </div>
-            <div class="col">
-                <h4>My Account</h4>
-                {% if request.user.is_authenticated %}
-                <a href="logout">logout</a>
-                {% else %}
-                <a href="#">Sign in</a>
-                {% endif %}
-                <a href="#">Track my mechandise</a>
-                <a href="#">Help</a>
-    
-            </div>
-            <div class="install">
-                <h4>Install App</h4>
-                <p>From App Store or From Google Play</p>
-                <div class="row">
-                    <img src="../static/img/google-play.png" alt="app store" style="width: 180px;height: 150px; margin-left: 45px;" class="goo">
-                    <img src="../static/img/app-store.png" alt="play google" style="width: 170px; margin-left: 55px;">
+                <div class="col">
+                    <h4>My Account</h4>
+                    {% if request.user.is_authenticated %}
+                    <a href="logout">logout</a>
+                    {% else %}
+                    <a href="#">Sign in</a>
+                    {% endif %}
+                    <a href="#">Track my mechandise</a>
+                    <a href="#">Help</a>
+        
                 </div>
-    
-            </div>
-            <div class="copyright">
-                <p> Copyright @ 2023, NetView All rights Reserved</p>
-            </div>
-    
-        </footer>
-
+                <div class="install">
+                    <h4>Install App</h4>
+                    <p>From App Store or From Google Play</p>
+                    <div class="row">
+                        <img src="../static/img/google-play.png" alt="app store" style="width: 180px;height: 150px; margin-left: 45px;" class="goo">
+                        <img src="../static/img/app-store.png" alt="play google" style="width: 170px; margin-left: 55px;">
+                    </div>
+        
+                </div>
+                <div class="copyright">
+                    <p style="color: whitesmoke;"> Copyright @ 2023, NetView All rights Reserved</p>
+                </div>
+        
+            </footer>
+        </div>
       <script src="../static/js/home1.js"></script>
     </body>

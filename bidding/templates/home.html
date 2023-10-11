@@ -33,10 +33,16 @@
         <select >
             <option >All</option>
         </select>
-        <input placeholder="Search NetView" class="search-input">
+        <form id="formku" class="search1" action="{% url 'search' %}" method="post">
+            {% csrf_token %}
+        <input type="search" placeholder="Search NetView"class="search-input">
+        
+        </form>
+        
         <div class="search-icon">
-        <i class="fa-solid fa-magnifying-glass" style="color: #0b7d7f;"></i>
+            <button id="m-glass" form="formku"><i class="fa-solid fa-magnifying-glass" style="color: #0b7d7f; position: relative;" ></i></button>
         </div>
+
 
       </div>
 
@@ -107,7 +113,7 @@
         <img src="../media/pics/bid_journey auctions.jpg" alt="">
     </div>
     </section>
-
+    <div class="grade1">
     <footer class="section-p1">
         <div class="col">
             <img src="../static/img/logo2.png" alt="">
@@ -149,10 +155,11 @@
 
         </div>
         <div class="copyright">
-            <p> Copyright @ 2023, NetView All rights Reserved</p>
+            <p style="color: whitesmoke;"> Copyright @ 2023, NetView All rights Reserved</p>
         </div>
 
     </footer>
+</div>
 
       <script src="../static/js/home1.js"></script>
 </body>
