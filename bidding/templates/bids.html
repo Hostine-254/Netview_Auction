@@ -30,7 +30,7 @@
         </select>
         <form id="formku" class="search1" action="{% url 'search' %}" method="post">
             {% csrf_token %}
-        <input type="search" placeholder="Search NetView"class="search-input">
+        <input type="search" placeholder="Search NetView"class="search-input" name="searched">
         
         </form>
         

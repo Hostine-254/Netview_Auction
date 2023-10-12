@@ -35,7 +35,7 @@
         </select>
         <form id="formku" class="search1" action="{% url 'search' %}" method="post">
             {% csrf_token %}
-        <input type="search" placeholder="Search NetView"class="search-input">
+        <input type="search" placeholder="Search NetView"class="search-input" name="searched">
         
         </form>
         
@@ -78,7 +78,7 @@
         <div class="pro-container">
 {% for i in items%}
             <div class="pro">
-                <a href="items/prod?id={{i.id}}"><img src="{{i.profile.url}}" style="width: 260px;"></a>
+                <a href="items/prod?id={{i.id}}"><img src="{{i.profile.url}}" style="width: 100%; margin-top: 4px;"></a>
                 <div class="des">
                     <span>{{i.tag}}</span>
                     <h5>{{i.name}}</h5>

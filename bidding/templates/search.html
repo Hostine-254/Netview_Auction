@@ -1,8 +1,11 @@
 {% extends 'header_1.html' %}
 {% block content %}
+<center>
+<div class="search-dat">
+    {% if items %}
+    <h2>Results</h2>
+    <p style="color: grey; font-weight: 800;">Price varies according to product details</p>
 <section id="product1" class="section-p1">
-    <h2>Featured Products</h2>
-    <p>This Weeks' available collections</p>
     <div class="pro-container">
 {% for i in items%}
         <div class="pro">
@@ -34,5 +37,12 @@
     <a href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
 
 </section>
+{% elif searched %}
+     <h3 style="color: grey; font-weight: 900;">No results for {{searched}}.</h3>
+     <p style="color: grey; font-weight: 800;">Check your spellings or Use more verbose terms</p>
+
+{% endif %}
+</div>
+</center>
     
 {% endblock %}

@@ -18,7 +18,16 @@ def homepage(request):
 
 @csrf_exempt
 def search(request):
-    return render(request,'search.html', {})
+    if request.method == 'POST':
+        searched = request.POST.get('searched')
+        items = Item.objects.filter(name__contains=searched)
+        print(searched)
+        if items:
+            return render(request,'search.html', {'items':items})
+        else:
+            return render(request,'search.html', {'searched':searched})
+    else:
+        return render(request,'search.html', {})
 
 @csrf_exempt
 def login(request):
