@@ -55,12 +55,12 @@
     <section id="hero">
         <div class="content">
           <h3>Affor<span>dable</span></h3>
-          <h2>Bidding & <br />Auction Platform</h2>
+          <h2>Enjoy a <br />Better Living</h2>
           <button ><span>Bid</span> Now</button>
         </div>
       </section>
 
-    <section id="product1" class="section-p1">
+        <section id="product1" class="section-p1">
         <h2>Featured Products</h2>
         <p>This Weeks' available collections</p>
         <div class="pro-container">
@@ -98,8 +98,20 @@
 
             </div>
 
+
+        </div>
+        
+
+    </section>
+
+    <div class="banner ban1">
+        <img src="../static/img/hifi.jpeg" alt="">
+      </div>
+
+    <section id="product2" class="section-p1">
+        <div class="pro-container">
             <div class="pro" onclick="window.location.href='/login';">
-                <img src="../media/pics/fridge1.jpg" alt="">
+                <img src="../media/pics/fridge1.jpg" alt="" style="float: right;">
                 <div class="des">
                     <span>Kitchen</span>
                     <h5>LG Lightweight Microwave</h5>
@@ -116,7 +128,7 @@
             </div>
 
             <div class="pro" onclick="window.location.href='/login';">
-                <img src="../media/pics/tv1.jpg" alt="">
+                <img src="../media/pics/tv1.jpg" alt="" style="float: left;">
                 <div class="des">
                     <span>Kitchen</span>
                     <h5>Philips UHD Smart Tv</h5>
@@ -133,7 +145,7 @@
             </div>
 
             <div class="pro">
-                <img src="../media/pics/fridge1.jpg" alt="">
+                <img src="../media/pics/fridge1.jpg" alt="" style="float: right;">
                 <div class="des">
                     <span>Kitchen</span>
                     <h5>Samsung DL Fridge</h5>
@@ -150,7 +162,7 @@
             </div>
 
             <div class="pro">
-                <img src="../media/pics/micro1.jpg" alt="">
+                <img src="../media/pics/micro1.jpg" alt="" style="float: left;">
                 <div class="des">
                     <span>Kitchen</span>
                     <h5>LG Lightweight Microwave</h5>
@@ -167,7 +179,7 @@
             </div>
 
             <div class="pro">
-                <img src="../media/pics/tv1.jpg" alt="">
+                <img src="../media/pics/tv1.jpg" alt="" style="float: right;">
                 <div class="des">
                     <span>Entertainment</span>
                     <h5>Philips UHD Smart Tv</h5>
@@ -184,7 +196,7 @@
             </div>
 
             <div class="pro">
-                <img src="../media/pics/micro1.jpg" alt="">
+                <img src="../media/pics/micro1.jpg" alt="" style="float: left;">
                 <div class="des">
                     <span>Kitchen</span>
                     <h5>LG Lightweight Microwave</h5>
@@ -204,7 +216,7 @@
         
 
     </section>
-    <div class="banner">
+    <div class="banner" >
         <img src="../media/pics/online_bid.jpg" alt="">
       </div>
 
@@ -333,29 +345,15 @@
 
             </div>
 
-            <div class="pro">
-                <img src="../media/pics/micro1.jpg" alt="">
-                <div class="des">
-                    <span>Kitchen</span>
-                    <h5>LG Lightweight Microwave</h5>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h4>Ground price : Shs2800</h4>
-
-                </div>
-
-            </div>
-
         </div>
         <div class="banner2">
             <h3 >In Association with</h3>
             <img src="../media/pics/bid_journey auctions.jpg" alt="">
         </div>
     </section>
+    <div class="banner ban1">
+        <img src="../static/img/art image.jfif" alt="">
+      </div>
     <div class="grade1">
 
     <footer class="section-p1">
@@ -380,7 +378,11 @@
         </div>
         <div class="col">
             <h4>My Account</h4>
+            {% if request.user.is_authenticated %}
+            <a href="logout">logout</a>
+            {% else %}
             <a href="/login">Sign in</a>
+            {% endif %}
             <a href="#">Track my mechandise</a>
             <a href="#">Help</a>
 
