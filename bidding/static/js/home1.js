@@ -23,3 +23,21 @@ window.onscroll = function(){
     }
 }
 
+const divlist = document.querySelectorAll('#product2 .pro-container');
+const nxtbtn = document.querySelectorAll('#next-slide');
+const prevbtn = document.querySelectorAll('#prev-slide');
+
+divlist.forEach((item, i) => {
+    let containerDim = item.getBoundingClientRect();
+    let containerWid = containerDim.width;
+
+    nxtbtn[i].addEventListener('click', () => {
+        console.log(item)
+        item.scrollLeft += containerWid;
+    })
+
+    prevbtn[i].addEventListener('click', () => {
+        console.log("clicked")
+        item.scrollLeft -= containerWid;
+    })
+})
