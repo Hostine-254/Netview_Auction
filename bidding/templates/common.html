@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <title>Front_end</title>
+  </head>
+  <body>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" integrity="sha512-+1GzNJIJQ0SwHimHEEDQ0jbyQuglxEdmQmKsu8KI7QkMPAnyDrL9TAnVyLPEttcTxlnLVzaQgxv2FpLCLtli0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <div id="page" class="site page-single">
+    <aside class="site-off desktop-hide">
+        <div class="off-canvas">
+            <div class="canvas-head flexitem">
+                <div class="logo"><a href="#"><img src="../static/img/assets/logo/logo2.png"></a>
+            </div>
+                <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+                
+            </div>
+            <div class="departments"></div>
+            <nav></nav>
+            <div class="thetop-nav"></div>
+        </div>
+    </aside>
+
+        <header>
+          <div class="header-top mobile-hide">
+            <div class="container">
+                <div class="wrapper flexitem">
+                    <div class="left">
+                        <ul class="flexitem main-links">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Featured products</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <ul class="flexitem main-links">
+                            <li>
+                                Hi, 
+                                {% if request.user.is_authenticated %} 
+                                {{request.user}}
+                                {% else %}
+                                <a href="/login">Sign In</a>
+                                {% endif %}
+                        </li>
+                        <li class="has-child">
+                            <a href="/myprofile">My Account</a>
+                                
+                                    
+                                    <ul class="submenu" style="height: auto; z-index: 9999; width:260px">
+                                      <div style="padding-top:20px; padding-left:90px; border:none; border:.5px solid orange; border-radius:5px; ">
+                                        <p style="text-decoration:underline; font-size:1.2em;">Your Account</p>
+                                        <li><a href="/myprofile">Account</a></li>
+                                        <li><a href="">Bids&Offers</a></li>
+                                        <li><a href="">Hidden Tokens</a></li>
+                                        <li><a href="">Recommendations</a></li>
+                                        <li><a href="">Newsletter Subscription</a></li>
+                                        <li><a href="">Sign Out</a></li>
+                                      </div>
+                                    </ul>
+                            
+                        </li>
+                                <li><a href="#">Merchandise Tracking</a></li>
+                                <li><a href="#">English <span class="icon-small"><i class="ri-arrow-down-line"></i></span></a>
+                                    <ul>
+                                        <li class="current"><a href="#">English</a></li>
+                                        <li><a href="#">Swahili</a></li>
+                                    </ul> 
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          </div>  
+        <!--header-top-->
+        <div class="header-nav">
+            <div class="container">
+                <div class="wrapper flexitem">
+                    <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                    <div class="left flexitem">
+                        <div class="logo"><a href="#"><img src="../static/img/assets/logo/logo2.png"></a>
+                        </div>
+                        <nav class="mobile-hide">
+                            <ul class="flexitem second-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Bid Shop</a></li>
+                                <li class="has-child">
+                                    <a href="#">Electronics
+                                        <div class="icon-small"><i class="ri-arrow-down-s- line"></i></div>
+                                    </a>
+                                    <div class="mega">
+                                        <div class="container">
+                                            <div class="wrapper">
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Household Electronics</h4>
+                                                        <ul>
+                                                            <li><a href="#">Flat screens</a></li>
+                                                            <li><a href="#">Sound Systems</a></li>
+                                                            <li><a href="#">Fridges & Microwaves</a></li>
+                                                            <li><a href="#">Cookers & Heaters</a></li>
+                                                            <li><a href="#">Laundry Equips'</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Office Electronics</h4>
+                                                        <ul>
+                                                            <li><a href="#">Computers & Accessories</a></li>
+                                                            <li><a href="#">Laptops</a></li>
+                                                            <li><a href="#">Coolers & Heaters</a></li>
+                                                            <li><a href="#">Office cleaners</a></li>
+                                                            <li><a href="#"></a>later</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Outdoor Electronics</h4>
+                                                        <ul>
+                                                            <li><a href="#">Cameras</a></li>
+                                                            <li><a href="#"></a>Water pumps & Generators</li>
+                                                            <li><a href="#"></a>Grass cutters</li>
+                                                            <li><a href="#"></a></li>
+                                                            <li><a href="#">Later</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Others</h4>
+                                                        <ul class="women-brands">
+                                                            <li><a href="#"></a>Aviator</li>
+                                                            <li><a href="#"></a>Aviator</li>
+                                                            <li><a href="#"></a>Later</li>
+                                                            <li><a href="#"></a>Later</li>
+                                                            <li><a href="#">Later</a></li>
+                                                        </ul>
+                                                        <a href="#" class="view-all">view all brands <i class="ri-arrow-right-line"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol products">
+                                                    <div class="row">
+                                                        <div class="media">
+                                                            <div class="thumbnails object-cover">
+                                                              <a href="#">
+                                                                <img src="assets/products/apparel4.jpg" alt="">
+                                                              </a>
+                                                            </div>
+                                                        </a>
+                                                        <div class="text-content">
+                                                            <h4>Most Wanted!</h4>
+                                                            <a href="#" class="primary-button">Bid Now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="#">Office</a></li>
+                                <li>
+                                    <a href="#">Furniture
+                                       <div class="fly-item"><span>New!</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="right">
+                        <ul class="flexitem second-links">
+                            <li class="mobile-hide"><a href="#">
+                                <div class="icon-larger"><i class="ri-heart-line"></i></div>
+                                <div class="fly-item"><span class="item-number">0</span></div>
+                            </a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main mobile-hide">
+            <div class="container">
+                <div class="wrapper flexitem">
+                    <div class="left">
+                        <div class="dpt-cat">
+                            <div class="dpt-head">
+                                <div class="main-text">All Categories</div>
+                                <div class="mini-text mobile-hide">Around 20 products</div>
+                                <a href="#" class="dpt-trigger mobile-hide">
+                                    <i class="ri-menu-3-line ri-xl"></i>
+                                    <i class="ri-close-line ri-xl"> </i>
+                                </a>
+                            </div>
+                            <div class="dpt-menu">
+                                <ul class="second-links">
+                                    <li class="has-child electro">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-bluetooth-connect-line"></i></div>
+                                            Electronics
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        <ul>
+                                            <li><a href="#">Flat Tvs'</a></li>
+                                            <li><a href="#">Fridges&Microwaves</a></li>
+                                            <li><a href="#">Sound systems</a></li>
+                                            <li><a href="#">Coolers&Heaters</a></li>
+                                            <li><a href="#">Clean Up' appliances</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="has-child furniture">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-hotel-bed-line"></i></div>
+                                            Furnture
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        <ul>
+                                            <li><a href="">Furnitudsns'</a></li>
+                                            <li><a href="">Fridges&Microwaves</a></li>
+                                            <li><a href="">Sound systems</a></li>
+                                            <li><a href="">Coolers&Heaters</a></li>
+                                            <li><a href="">Clean Up' appliances</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-child estates">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Real Estates
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        <ul>
+                                            <li><a href="">supreme court</a></li>
+                                            <li><a href="">Fridges&Microwaves</a></li>
+                                            <li><a href="">Sound systems</a></li>
+                                            <li><a href="">Coolers&Heaters</a></li>
+                                            <li><a href="">Clean Up' appliances</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Mens Fashion
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        
+                                    </li>
+                                    <li class="has-child shambas">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-landscape-line"></i></div>
+                                            Shambas
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+
+                                        <div class="mega">
+                                            <div class="flexcol">
+                                               <div class="row">
+                                                    <h4><a href="#">Prime Plots</a></h4>
+                                                    <ul>
+                                                        <li><a href="#">Nairobi</a></li>
+                                                        <li><a href="#">Kisumu</a></li>
+                                                        <li><a href="#">Mombasa</a></li>
+                                                        <li><a href="#">Kiambu</a></li>
+                                                        <li><a href="#">Kajiado</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="row">
+                                                    <h4><a href="#">All Around</a></h4>
+                                                    <ul>
+                                                        <li><a href="#">Private</a></li>
+                                                        <li><a href="#">County owned </a></li>
+                                                        <li><a href="#">G.O.K Owned</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="flexcol">
+                                                <div class="row">
+                                                     <h4><a href="#">Bed & Bath</a></h4>
+                                                     <ul>
+                                                         <li><a href="#">Bathroom</a></li>
+                                                         <li><a href="#">Powder Room</a></li>
+                                                         <li><a href="#">Bedroom</a></li>
+                                                         <li><a href="#">Storage & Closet</a></li>
+                                                         <li><a href="#">Baby & Kids</a></li>
+                                                     </ul>
+                                                 </div>
+                                                 <div class="row">
+                                                     <h4><a href="#">Utility</a></h4>
+                                                     <ul>
+                                                         <li><a href="#">Laundry</a></li>
+                                                         <li><a href="#">Garage</a></li>
+                                                         <li><a href="#">Mudroom</a></li>
+                                                     </ul>
+                                                 </div>
+                                             </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Girls Fashion
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Health & Household
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="search-box">
+                            <form action="" class="search">
+                                <span class="icon-large"><i class="ri-search-line"></i></span>
+                                <input type="search" placeholder="Search Netview">
+                                <button type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </header>
+        <!--header-->
+        
+        <!--sub product-->
+
+        <div class="sub_container">
+            <div class="pro_wrapper">
+                <div class="product-box">
+                    <div class="all-images">
+                        <div class="small-images">
+                            <img src="{{item.profile.url}}" onclick="clickimg(this)" style="width: 75px;">
+                            <img src="{{item.img1.url}}" onclick="clickimg(this)" style="width: 70px;">
+                            <img src="{{item.img2.url}}" onclick="clickimg(this)" style="width: 70px;">
+                            <img src="{{item.img3.url}}" onclick="clickimg(this)" style="width: 70px;">
+                        </div>
+                        <div class="main-images">
+                            <img src="{{item.profile.url}}" id="imagebox" alt="">
+                        </div>
+                    </div>
+                </div>
+                <dic class="text">
+                    <div class="content">
+                        <p class="bran">{{item.tag}}</p>
+                        <h1>{{item.name}}</h1>
+                        <div class="review">
+                            <p>NetView's rating<span>(4.6)</span></p>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <P class="auth"><i class="ri-star-line"></i><span>Authencity of this item is guaranteed</span></P>
+                        <P class="auth"><i class="ri-calculator-line"></i><span>Tax Excluded</span></P>
+                        <h3>Product Detail</h3>
+                        <h4>Detail</h4>
+                        <p class="iner ">{{item.long_description}}</p>
+                        <h4>Condition Review</h4>
+                        <p class="iner">{{item.short_description}}</p>
+                        <h4>Refference No.</h4>
+                        <p class="iner">N1234</p>
+
+                        <h3>T & Cs</h3>
+                        <p class="iner">Please note that the cancellation right for Ke/Ea purchasers applies to this item. Please read Condition 19 of the Buy Now Marketplace Conditions of Business</p>
+                        
+                        <h3>Bid Amount</h3>
+                        <div class="price-box">
+                            <h4 class="auth-price"><i class="ri-currency-line"></i><span>Current price</span></h4>
+                            <span class="current" style="font-size:.92em">Current price <span style="color:green; font-size:.95em">Shs {{i.currentPrice}}</span></span>
+                            <p class="iner2">shs 2200</p>
+                            <strike>Shs 18,500</strike>
+                        </div>
+                        <a href="biditem?id={{item.id}}"><button>Place a Bid</button></a>
+                    </div>
+                </dic>
+            </div>
+        </div>
+        <!--banner-->
+        <div class="banners">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="column">
+                        <div class="banner flexwrap">
+                            <div class="row">
+                                <div class="item">
+                                    <div class="image">
+                                        <img src="../static/img/assets/banner/banner1.jpg" alt="">
+                                    </div>
+                                    <div class="text-content flexcol">
+                                        <h3>Brutal Bid</h4>
+                                        <h3><span>Get the Best Out of Rejects</span><br>Living Room Chair</h3>
+                                        <a href="#" class="primary-button">Bid Now</a>
+                                    </div>
+                                    <a href="#" class="over-link"></a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="item get-gray">
+                                    <div class="image">
+                                        <img src="../static/img/assets/banner/old_benz-removebg-preview.png" alt="">
+                                    </div>
+                                    <div class="text-content flexcol">
+                                        <h3>Fashion Looks</h4>
+                                        <h3><span>Discount Everyday</span><br>Office Suite</h3>
+                                        <a href="#" class="primary-button">Bid Now</a>
+                                    </div>
+                                    <a href="#" class="over-link"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--banners-->
+                        <!--product slider-->
+
+                    </div>
+                </div>
+            </div>
+         </div>
+        
+        <!--main-->
+        <div class="slider2">
+            <p class="slider_p" style="font-size: 1.5em;">products Related to the above</p>
+            <ul id="autoWidth" class="cs-hidden">
+                <li class="item-a">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/micro1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-b">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/electronic1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div> 
+                </li>
+                <li class="item-c">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/jbl1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-d">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/fridge1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/dodge5-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="item-spec">
+            <p class="item_p" style="font-size: 1.4em;">Item Detailed Specifics</p>
+            <div class="item_data">
+                <div class="col3">
+                    <div class="cond">
+                        <h6>Condition</h6>
+                        <p>Refurbished</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Pre-detail</h6>
+                        <p>New: A brand-new, unused, unopened, undamaged item in its original packaging where packaging is ... Read moreabout the condition</p>
+                    </div>
+                    <div class="cond">
+                        <h6>x_UK type</h6>
+                        <p>No</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Model no.</h6>
+                        <p>N5674Ew</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Item Color</h6>
+                        <p>Brown</p>
+                    </div>
+                </div>
+                <div class="col4">
+                    <div class="cond">
+                        <h6>Features</h6>
+                        <p>4K Video Recording, AMOLED Display, Wide-Angle Camera, Ultra Wide-Angle Camera,Triple Rear Camera</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Fragile</h6>
+                        <p>Yes</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Brand</h6>
+                        <p>Samsung</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Category</h6>
+                        <p>Electronics</p>
+                    </div>
+                    <div class="cond">
+                        <h6>Warranty</h6>
+                        <p>Void</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="slider2">
+            <p class="slider_p" style="font-size: 1.3em;">Other NetViews' Hub Choice</p>
+            <ul id="autoWidth" class="cs-hidden">
+                <li class="item-a">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/fridge1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-b">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/dodge5-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div> 
+                </li>
+                <li class="item-c">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/electronic1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-d">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/micro_d1-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box-slide">
+                        <div class="slide_img">
+                            <img src="../media/pics/jbl-removebg-preview.png" alt="">
+                        </div>
+                        <div class="slide_detail">
+                            <div class="slide-type">
+                                 <a href="#">OnePlus Nord N20 5G 128GB Blue GSM T-Mobile Refurbished smartphone</a>
+                                 <p class="posit"><span>Good-Refurbished</span></p>
+                                 <p class="slide_price">Shs 400</p>
+                                 <p class="posit">25 bids</p>
+                                 <p class="posit-target">NetViews' Refurbished</p>
+                                 <p class="posit">Seller with 80% positive feeback response</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="seller-desc">
+            <h3>Seller's Detailed Specifics</h3>
+           <div class="seller-text">
+                <h4>Condition</h4>
+                <p>Brand New Unboxed Machine </p>
+                <h4>Accompanied by</h4>
+                <p>A 5v DC charger</p>
+                <p>A Earphone</p>
+                <p>A replacement Battry</p>
+                <h4>Shipping</h4>
+                <p>The item can be delivered to the nearest Town at which after the buyer will handle the extra fees</p>
+                <h4>Return Policy</h4>
+                <p>In case there are problems/issues with with product it can be <span>returned to 
+                    to the seller within 5days of item reception</span>. Money refunds are not acceptable
+                </p>
+                <h4>Disclaimer</h4>
+                <p>For all issues or inquiries you might have please message us on the messaging system before 
+                    negative feedback is left as we are here to help! Thank you for doing bussiness with us.</p>
+           </div>
+            
+        </div>
+
+        <div class="all-content all-content1">
+            <div class="sidebar-sub">
+                <div class="side-inner2">
+                    <h3 style="font-size: 1.4em;">Product Ratings and Reviews</h3>
+                    <h4>Customers Review</h4>
+                    <div class="star1">
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="ri-star-fill"></i>
+                        <i class="star1-text">4.5 out of 5</i>
+                    </div>
+                    <div class="progress">
+                        <div class="prog-tab">
+                            <div class="star2">5 Star</div>
+                            <div class="prog-bar">
+                            <div class="prog-percent" style="width: 76%;"></div>
+                            </div>
+                            <div class="prog-val">76%</div>
+                        </div>
+
+                        <div class="prog-tab">
+                            <div class="star2">4 Star</div>
+                            <div class="prog-bar">
+                            <div class="prog-percent" style="width: 37%;"></div>
+                            </div>
+                            <div class="prog-val">37%</div>
+                        </div>
+
+                        <div class="prog-tab">
+                            <div class="star2">3 Star</div>
+                            <div class="prog-bar">
+                            <div class="prog-percent" style="width: 51%;"></div>
+                            </div>
+                            <div class="prog-val">51%</div>
+                        </div>
+
+                        <div class="prog-tab">
+                            <div class="star2">2 Star</div>
+                            <div class="prog-bar">
+                            <div class="prog-percent" style="width: 19%;"></div>
+                            </div>
+                            <div class="prog-val">19%</div>
+                        </div>
+
+                        <div class="prog-tab">
+                            <div class="star2">1 Star</div>
+                            <div class="prog-bar">
+                            <div class="prog-percent" style="width: 5%;"></div>
+                            </div>
+                            <div class="prog-val">5%</div>
+                        </div>
+
+                    </div>
+                    <h4>Review the Product</h4>
+                    <p class="thou1">Share Your thoughts with other customers about the product</p>
+                    <div class="thoughts">
+                       <input type="text" placeholder="Write a review">
+                    </div>
+                </div>
+
+            </div>
+            <div class="features feature-sub feature-sub-two">
+                <div class="container">
+                    <h4>Top Reviews from within the Region</h4>
+                    <div class="wrapper">
+                        <div class="rev-top">
+                            <i class="ri-user-star-line"></i>
+                            <p>Brent Omwena</p>
+                        </div>
+                        <div class="star3">
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <p>Quality tv at a good price</p>
+                        </div>
+                        <div class="rev-text">
+                            <p>
+                                My first impression when I saw it was “Wow how big”, actually I imagined it a little smaller, but I understand that it is a “standard” size.
+
+This Viper is quite light, it gives the impression of being of “poor quality” because it is SO LIGHT. But it's not and I understand that this weight is convenient for long competitive days in games. After several days of using it you get used to the weight, it's very precise, it glides quite well and is 100% configurable.
+
+I didn't like the fact that it has the DPI change button at the bottom of the mouse, but since it's an ambidextrous mouse, it has two buttons left over on the right side and there I assigned the DPI changes there.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <div class="rev-top">
+                            <i class="ri-user-star-line"></i>
+                            <p>Hostine Omondi</p>
+                        </div>
+                        <div class="star3">
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <p>Quality tv at a good price</p>
+                        </div>
+                        <div class="rev-text">
+                            <p>
+                                My first impression when I saw it was “Wow how big”, actually I imagined it a little smaller, but I understand that it is a “standard” size.
+
+This Viper is quite light, it gives the impression of being of “poor quality” because it is SO LIGHT. But it's not and I understand that this weight is convenient for long competitive days in games. After several days of using it you get used to the weight, it's very precise, it glides quite well and is 100% configurable.
+
+I didn't like the fact that it has the DPI change button at the bottom of the mouse, but since it's an ambidextrous mouse, it has two buttons left over on the right side and there I assigned the DPI changes there.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <div class="rev-top">
+                            <i class="ri-user-star-line"></i>
+                            <p>Clinton Junior</p>
+                        </div>
+                        <div class="star3">
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <i class="ri-star-fill"></i>
+                             <p>Quality tv at a good price</p>
+                        </div>
+                        <div class="rev-text">
+                            <p>
+                                My first impression when I saw it was “Wow how big”, actually I imagined it a little smaller, but I understand that it is a “standard” size.
+
+This Viper is quite light, it gives the impression of being of “poor quality” because it is SO LIGHT. But it's not and I understand that this weight is convenient for long competitive days in games. After several days of using it you get used to the weight, it's very precise, it glides quite well and is 100% configurable.
+
+I didn't like the fact that it has the DPI change button at the bottom of the mouse, but since it's an ambidextrous mouse, it has two buttons left over on the right side and there I assigned the DPI changes there.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="section-p1">
+            <div class="flexfoot">
+                <div class="col col1">
+                    <img src="../static/img/assets/logo/logo2.png" alt="">
+                    <h4>Contact</h4>
+                    <p><span>Address: </span>Luthuli Road, Lane 4, Nairobi</p>
+                    <p><span>Phone:</span> +25472288543 /(+25700225481)</p>
+                    <p><span>Hours:</span>0800hrs - 1700hrs, Mon - Sat</p>
+                    <div class="follow">
+                        <h4>Follow Us</h4>
+                        <div class="icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-pinterest-p"></i>
+                            <i class="fab fa-youtube"></i>
+        
+                        </div>
+        
+                    </div>
+                </div>
+                <div class="col dow">
+                    <h4>My Account</h4>
+                    <a href="logout">logout</a>
+
+                    <a href="/login">Sign in</a>
+
+                    <a href="#">Track my mechandise</a>
+                    <a href="#">Help</a>
+        
+                </div>
+                <div class="col install">
+                    <h4>Install App</h4>
+                    <p>From App Store or From Google Play</p>
+                    <div class="row">
+                        <img src="../static/img/assets/logo/google-play.png" alt="app store" style="width: 150px;height: 120px; margin-left: 45px;" class="goo">
+                        <img src="../static/img/assets/logo/app-store.png" alt="play google" style="width: 130px; margin-left: 55px;">
+                    </div>
+        
+                </div>
+        </div>
+            <div class="copyright">
+                <p style="color: whitesmoke;"> Copyright @ 2023, NetView All rights Reserved</p>
+            </div>
+    
+        </footer>
+        <!--footer-->
+
+        <div class="menu-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <nav>
+                        <ul class="flexitem">
+                            <li>
+                                <a href="#">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Trending</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-user-6-line"></i>
+                                    <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="t-search">
+                                    <i class="ri-search-line"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="search-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <form action="" class="search">
+                        <a href="#0" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+                        <span class="icon-large"><i class="ri-search-line"></i></span>
+                        <input type="search" placeholder="Search NetView">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js" integrity="sha512-Gfrxsz93rxFuB7KSYlln3wFqBaXUc1jtt3dGCp+2jTb563qYvnUBM/GP2ZUtRC27STN/zUamFtVFAIsRFoT6/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../static/js/script.js"></script>
+    <!--
+        Applied for single slides only
+    <script>
+        $(document).ready(function() {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:false,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  }); 
+    </script>
+-->
+    <script>
+        $('.cs-hidden').each(function(i, e){
+  var id = 'adaptive';
+  $(e).attr('id', id+i);
+  var selector = '#'+id+i;
+   $(selector).lightSlider({
+    autoWidth:true,
+    adaptiveHeight:false,
+    loop:false,
+    onSliderLoad: function() {
+        $('#autoWidth').removeClass('cS-hidden')
+    }
+   });
+});
+    </script>
+    <script>
+        function clickimg(smallImg){
+            var fullImg = document.getElementById("imagebox");
+            fullImg.src = smallImg.src
+        }
+    </script>
+    
+    
+</body>
+</html>

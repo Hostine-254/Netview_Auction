@@ -7,4 +7,5 @@ urlpatterns = [
     path('validate',views.validate,name="validate"),
     path('item/biditem',views.biditem,name="biditem"),
     path('prod',views.sub_product,name="sub_product"),
+    path('main_prod',views.sub_product_main,name="sub_product_main"),
 ]

@@ -48,13 +48,13 @@
             <i class="fa-solid fa-bars"></i>
           </div>
             <div class="dropdown_menu ">
-                <li><a href="/home"">Roam</a></li>
+                <li><a href="/home">Roam</a></li>
                 <li><a href="logout">Logout</a></li>
             </div>
         </section>
         <div class="container">
-        <form class="input-grp" action="additem" method="post" enctype="multipart/form-data">{% csrf_token %}
-            <center>
+         <form class="input-grp" action="additem" method="post" enctype="multipart/form-data">{% csrf_token %}
+           <center>
             <table border="0">
                 <tr>
                     <td height="20px"></td>
@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <td class="desc1" class="right">Item name : </td>
-                    <td><input type="text" class="field" name="iname" placeholder="Enter item name" required></td>
+                    <td><input type="text" class="field special1" name="iname" placeholder="Enter item name" required></td>
                 </tr>
                 <tr>
                     <td height="20px"></td>
@@ -71,7 +71,7 @@
                 <tr>
                     
                     <td class="desc1">profile image : </td>
-                    <td><input type="file" class="field" name="img" accept="image/*" required></td>
+                    <td><input type="file" class="field imgs" name="img" accept="image/*" required></td>
                 </tr>
                 <tr>
                     <td height="20px"></td>
@@ -80,7 +80,7 @@
                 <tr>
                     
                     <td class="desc1" width="30%">Optional image1 : </td>
-                    <td width="60%"><input type="file" class="field" name="img1" accept="image/*" ></td>
+                    <td width="60%"><input type="file" class="field imgs" name="img1" accept="image/*" ></td>
                 </tr>
                 <tr>
                     <td height="20px"></td>
@@ -88,7 +88,7 @@
                 </tr>
                 <tr>
                     <td class="desc1">Optional image2 : </td>
-                    <td><input type="file" class="field" name="img2" accept="image/*" ></td>
+                    <td><input type="file" class="field imgs" name="img2" accept="image/*" ></td>
                 </tr>
                 <tr>
                     <td height="20px"></td>
@@ -96,7 +96,7 @@
                 </tr>
                 <tr>
                     <td class="desc1">Optional image3 : </td>
-                    <td><input type="file" class="field" name="img3" accept="image/*" ></td>
+                    <td><input type="file" class="field imgs" name="img3" accept="image/*" ></td>
                 </tr>
                 <tr>
                     <td height="20px"></td>
@@ -104,7 +104,7 @@
                 </tr>
                 <tr>
                     <td class="desc1">Optional image4 : </td>
-                    <td><input type="file" class="field" name="img4" accept="image/*" ></td>
+                    <td><input type="file" class="field imgs" name="img4" accept="image/*" ></td>
                 </tr>
                 <tr>
                     <td height="20px"></td>

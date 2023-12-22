@@ -9,8 +9,10 @@ class Item(models.Model):
     img2=models.ImageField(upload_to='pics' ,null=True, blank=True )
     img3=models.ImageField(upload_to='pics' ,null=True, blank=True )
     img4=models.ImageField(upload_to='pics' ,null=True, blank=True )
-    short_description=models.CharField(max_length=50)
+    condition=models.CharField(null=True,max_length=15)
+    short_description=models.CharField(max_length=150)
     long_description=models.TextField()
+    discount=models.IntegerField(null=True)
     basePrice=models.IntegerField()
     currentPrice=models.IntegerField()
     

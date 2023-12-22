@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <title>Front_end</title>
+  </head>
+  <body>
+    <div id="page" class="site page-single">
+    <aside class="site-off desktop-hide">
+        <div class="off-canvas">
+            <div class="canvas-head flexitem">
+                <div class="logo"><a href="#"><img src="../static/img/assets/logo/logo2.png"></a>
+            </div>
+                <a href="#" class="t-close flexcenter"><i class="ri-close-line"></i></a>
+                
+            </div>
+            <div class="departments"></div>
+            <nav></nav>
+            <div class="thetop-nav"></div>
+        </div>
+    </aside>
+
+        <header>
+          <div class="header-top mobile-hide">
+            <div class="container">
+                <div class="wrapper flexitem">
+                    <div class="left">
+                        <ul class="flexitem main-links">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Featured products</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <ul class="flexitem main-links">
+                            <li>
+                                Hi, 
+                                {% if request.user.is_authenticated %} 
+                                {{request.user}}
+                                {% else %}
+                                <a href="/login">Sign In</a>
+                                {% endif %}
+                        </li>
+                        <li class="has-child">
+                            <a href="myprofile">My Account</a>
+                                
+                                    
+                                    <ul class="submenu" style="height: auto; z-index: 9999; width:260px">
+                                      <div style="padding-top:20px; padding-left:90px; border:none; border:.5px solid orange; border-radius:5px; ">
+                                        <p style="text-decoration:underline; font-size:1.2em;">Your Account</p>
+                                        <li><a href="myprofile">Account</a></li>
+                                        <li><a href="">Bids&Offers</a></li>
+                                        <li><a href="">Hidden Tokens</a></li>
+                                        <li><a href="">Recommendations</a></li>
+                                        <li><a href="">Newsletter Subscription</a></li>
+                                        <li><a href="">Sign Out</a></li>
+                                      </div>
+                                    </ul>
+                            
+                        </li>
+                                <li><a href="#">Merchandise Tracking</a></li>
+                                <li><a href="#">English <span class="icon-small"><i class="ri-arrow-down-line"></i></span></a>
+                                    <ul>
+                                        <li class="current"><a href="#">English</a></li>
+                                        <li><a href="#">Swahili</a></li>
+                                    </ul> 
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+          </div>  
+        <!--header-top-->
+        <div class="header-nav">
+            <div class="container">
+                <div class="wrapper flexitem">
+                    <a href="#" class="trigger desktop-hide"><span class="i ri-menu-2-line"></span></a>
+                    <div class="left flexitem">
+                        <div class="logo"><a href="#"><img src="../static/img/assets/logo/logo2.png"></a>
+                        </div>
+                        <nav class="mobile-hide">
+                            <ul class="flexitem second-links">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Bid Shop</a></li>
+                                <li class="has-child">
+                                    <a href="#">Electronics
+                                        <div class="icon-small"><i class="ri-arrow-down-s- line"></i></div>
+                                    </a>
+                                    <div class="mega">
+                                        <div class="container">
+                                            <div class="wrapper">
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Household Electronics</h4>
+                                                        <ul>
+                                                            <li><a href="#">Flat screens</a></li>
+                                                            <li><a href="#">Sound Systems</a></li>
+                                                            <li><a href="#">Fridges & Microwaves</a></li>
+                                                            <li><a href="#">Cookers & Heaters</a></li>
+                                                            <li><a href="#">Laundry Equips'</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Office Electronics</h4>
+                                                        <ul>
+                                                            <li><a href="#">Computers & Accessories</a></li>
+                                                            <li><a href="#">Laptops</a></li>
+                                                            <li><a href="#">Coolers & Heaters</a></li>
+                                                            <li><a href="#">Office cleaners</a></li>
+                                                            <li><a href="#"></a>later</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Outdoor Electronics</h4>
+                                                        <ul>
+                                                            <li><a href="#">Cameras</a></li>
+                                                            <li><a href="#"></a>Water pumps & Generators</li>
+                                                            <li><a href="#"></a>Grass cutters</li>
+                                                            <li><a href="#"></a></li>
+                                                            <li><a href="#">Later</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol">
+                                                    <div class="row">
+                                                        <h4>Others</h4>
+                                                        <ul class="women-brands">
+                                                            <li><a href="#"></a>Aviator</li>
+                                                            <li><a href="#"></a>Aviator</li>
+                                                            <li><a href="#"></a>Later</li>
+                                                            <li><a href="#"></a>Later</li>
+                                                            <li><a href="#">Later</a></li>
+                                                        </ul>
+                                                        <a href="#" class="view-all">view all brands <i class="ri-arrow-right-line"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="flexcol products">
+                                                    <div class="row">
+                                                        <div class="media">
+                                                            <div class="thumbnails object-cover">
+                                                              <a href="#">
+                                                                <img src="assets/products/apparel4.jpg" alt="">
+                                                              </a>
+                                                            </div>
+                                                        </a>
+                                                        <div class="text-content">
+                                                            <h4>Most Wanted!</h4>
+                                                            <a href="#" class="primary-button">Bid Now</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="#">Office</a></li>
+                                <li>
+                                    <a href="#">Furniture
+                                       <div class="fly-item"><span>New!</span></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="right">
+                        <ul class="flexitem second-links">
+                            <li class="mobile-hide"><a href="#">
+                                <div class="icon-larger"><i class="ri-heart-line"></i></div>
+                                <div class="fly-item"><span class="item-number">0</span></div>
+                            </a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-main mobile-hide">
+            <div class="container">
+                <div class="wrapper flexitem">
+                    <div class="left">
+                        <div class="dpt-cat">
+                            <div class="dpt-head">
+                                <div class="main-text">All Categories</div>
+                                <div class="mini-text mobile-hide">Around 20 products</div>
+                                <a href="#" class="dpt-trigger mobile-hide">
+                                    <i class="ri-menu-3-line ri-xl"></i>
+                                    <i class="ri-close-line ri-xl"> </i>
+                                </a>
+                            </div>
+                            <div class="dpt-menu">
+                                <ul class="second-links">
+                                    <li class="has-child electro">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-bluetooth-connect-line"></i></div>
+                                            Electronics
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        <ul>
+                                            <li><a href="#">Flat Tvs'</a></li>
+                                            <li><a href="#">Fridges&Microwaves</a></li>
+                                            <li><a href="#">Sound systems</a></li>
+                                            <li><a href="#">Coolers&Heaters</a></li>
+                                            <li><a href="#">Clean Up' appliances</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="has-child furniture">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-hotel-bed-line"></i></div>
+                                            Furnture
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        <ul>
+                                            <li><a href="">Furnitudsns'</a></li>
+                                            <li><a href="">Fridges&Microwaves</a></li>
+                                            <li><a href="">Sound systems</a></li>
+                                            <li><a href="">Coolers&Heaters</a></li>
+                                            <li><a href="">Clean Up' appliances</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-child estates">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Real Estates
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        <ul>
+                                            <li><a href="">supreme court</a></li>
+                                            <li><a href="">Fridges&Microwaves</a></li>
+                                            <li><a href="">Sound systems</a></li>
+                                            <li><a href="">Coolers&Heaters</a></li>
+                                            <li><a href="">Clean Up' appliances</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Mens Fashion
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        
+                                    </li>
+                                    <li class="has-child shambas">
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-landscape-line"></i></div>
+                                            Shambas
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+
+                                        <div class="mega">
+                                            <div class="flexcol">
+                                               <div class="row">
+                                                    <h4><a href="#">Prime Plots</a></h4>
+                                                    <ul>
+                                                        <li><a href="#">Nairobi</a></li>
+                                                        <li><a href="#">Kisumu</a></li>
+                                                        <li><a href="#">Mombasa</a></li>
+                                                        <li><a href="#">Kiambu</a></li>
+                                                        <li><a href="#">Kajiado</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="row">
+                                                    <h4><a href="#">All Around</a></h4>
+                                                    <ul>
+                                                        <li><a href="#">Private</a></li>
+                                                        <li><a href="#">County owned </a></li>
+                                                        <li><a href="#">G.O.K Owned</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="flexcol">
+                                                <div class="row">
+                                                     <h4><a href="#">Bed & Bath</a></h4>
+                                                     <ul>
+                                                         <li><a href="#">Bathroom</a></li>
+                                                         <li><a href="#">Powder Room</a></li>
+                                                         <li><a href="#">Bedroom</a></li>
+                                                         <li><a href="#">Storage & Closet</a></li>
+                                                         <li><a href="#">Baby & Kids</a></li>
+                                                     </ul>
+                                                 </div>
+                                                 <div class="row">
+                                                     <h4><a href="#">Utility</a></h4>
+                                                     <ul>
+                                                         <li><a href="#">Laundry</a></li>
+                                                         <li><a href="#">Garage</a></li>
+                                                         <li><a href="#">Mudroom</a></li>
+                                                     </ul>
+                                                 </div>
+                                             </div>
+                                        </div>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Girls Fashion
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="icon-large"><i class="ri-home-heart-line"></i></div>
+                                            Health & Household
+                                            <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
+                                        </a>
+                                        
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="search-box">
+                            <form id="formku" class="search" action="{% url 'search' %}" method="post">
+                                <span class="icon-large"><i class="ri-search-line"></i></span>
+                                <input type="search" placeholder="Search Netview" name="searched">
+                                <button type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </header>
+        <!--header-->
+        <div class="head-banner">
+            <div class="ban-txt">
+               <h3>Enjoying life is not <br>an option</h3>
+               <p>quality products, minimal stakes</p>
+            </div>
+        </div>
+        <!--view all-->
+        <div class="all-content">
+        <div class="sidebar">
+            <div class="side-inner">
+                <div class="cat1">
+                    <h4>Category</h4>
+                    <ul>
+                        <li>All</li>
+                        <li>Radios, Tvs, phones</li>
+                    </ul>
+                </div>
+                <div class="cat1">
+                    <h4>Brand</h4>
+                    <ul>
+                        <li><input type="checkbox"><span>Sony</span></li>
+                        <li><input type="checkbox"><span>Lg</span></li>
+                        <li><input type="checkbox"><span>Asus</span></li>
+                        <li><input type="checkbox"><span>Hp</span></li>
+                        <li><input type="checkbox"><span>Ampex</span></li>
+                    </ul>
+                </div>
+                <div class="cat1">
+                    <h4>County/Region of reception</h4>
+                    <ul>
+                        <li><input type="checkbox"><span>Thika</span></li>
+                        <li><input type="checkbox"><span>Nairobi,CBD</span></li>
+                        <li><input type="checkbox"><span>Kisumu</span></li>
+                        <li><input type="checkbox"><span>Machakos</span></li>
+                        <li><input type="checkbox"><span>Mombasa</span></li>
+                    </ul>
+                </div>
+                <div class="cat1">
+                    <h4>Condition</h4>
+                    <ul>
+                        <li><input type="checkbox"><span>New</span></li>
+                        <li><input type="checkbox"><span>pre-Owned</span></li>
+                        <li><input type="checkbox"><span>Refurbished</span></li>
+                    </ul>
+                </div>
+                <div class="cat1">
+                    <h4>Buying Method</h4>
+                    <ul>
+                        <li><input type="checkbox"><span>Auction</span></li>
+                        <li><input type="checkbox"><span>Buy Now</span></li>
+                    </ul>
+                </div>
+                <div class="cat1">
+                    <h4>Item Location</h4>
+                    <ul>
+                        <li><input type="checkbox"><span>East Africa</span></li>
+                        <li><input type="checkbox"><span>Kenya</span></li>
+                        <li><input type="checkbox"><span>Countys'</span></li>
+                    </ul>
+                </div>
+                <div class="cat1">
+                    <h4>See Only</h4>
+                    <ul>
+                        <li><input type="checkbox"><span>Authencity guaranted</span></li>
+                        <li><input type="checkbox"><span>Returns Accepted</span></li>
+                        <li><input type="checkbox"><span>Authorized Dealers</span></li>
+                        <li><input type="checkbox"><span>Deals & Savings</span></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+        <div class="features feature-sub feature-sub-one">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="column">
+                        <div class="sectop flexitem">
+                            <h2><span class="circle"></span>{{categ.tag}}' Hub</h2>
+                            <div class="secondary-links">
+                            </div>
+                        </div>
+                        <div class="products main flexwrap">
+                          {% for i in items%}
+                            <div class="item">
+                                <div class="media">
+                                    <div class="thumbnail object-cover">
+                                        <a href="/items/prod?id={{i.id}}">
+                                            <img src="{{i.profile.url}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="hoverable">
+                                        <ul>
+                                            <li class="active"><a href="#"><i class="ri-heart-line"></i></a></li>
+                                            <li><a href="#"><i class="ri-eye-line"></i></a></li>
+                                            <li><a href="#"><i class="ri-shuffle-line"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="discount circle flexcenter"><span>{{i.discount}}%</span></div>
+                                </div>
+                                <div class="content">
+                                    <div class="rating">
+                                        <div class="stars"></div>
+                                        <span class="mini-text">(2,548)</span>
+                                    </div>
+                                    <h3 class="main-links"><a href="#">{{i.short_description}}</a></h3>
+                                    <div class="price">
+                                        <span class="current" style="font-size:.92em">Current price <span style="color:green; font-size:.95em">Shs {{i.currentPrice}}</span></span>
+                                        <span class="normal mini-text">{{i.condition}}</span>
+                                    </div>
+                                    <div class="footer">
+                                        <ul class="mini-text">
+                                            <li>Polyster,Cotton</li>
+                                            <li>Fashion Personality</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                          {% endfor %}    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--banner-->
+        
+        <!--main-->
+
+        <footer class="section-p1">
+            <div class="flexfoot">
+                <div class="col col1">
+                    <img src="../static/img/assets/logo/logo2.png" alt="">
+                    <h4>Contact</h4>
+                    <p><span>Address: </span>Luthuli Road, Lane 4, Nairobi</p>
+                    <p><span>Phone:</span> +25472288543 /(+25700225481)</p>
+                    <p><span>Hours:</span>0800hrs - 1700hrs, Mon - Sat</p>
+                    <div class="follow">
+                        <h4>Follow Us</h4>
+                        <div class="icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-pinterest-p"></i>
+                            <i class="fab fa-youtube"></i>
+        
+                        </div>
+        
+                    </div>
+                </div>
+                <div class="col dow">
+                    <h4>My Account</h4>
+                    {% if request.user.is_authenticated %}
+                    <a href="logout">logout</a>
+                    {% else %}
+                    <a href="/login">Sign in</a>
+                    {% endif %}
+
+                    <a href="#">Track my mechandise</a>
+                    <a href="#">Help</a>
+        
+                </div>
+                <div class="col install">
+                    <h4>Install App</h4>
+                    <p>From App Store or From Google Play</p>
+                    <div class="row">
+                        <img src="../static/img/assets/logo/google-play.png" alt="app store" style="width: 150px;height: 120px; margin-left: 45px;" class="goo">
+                        <img src="../static/img/assets/logo/app-store.png" alt="play google" style="width: 130px; margin-left: 55px;">
+                    </div>
+        
+                </div>
+        </div>
+            <div class="copyright">
+                <p style="color: whitesmoke;"> Copyright @ 2023, NetView All rights Reserved</p>
+            </div>
+    
+        </footer>
+        <!--footer-->
+
+        <div class="menu-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <nav>
+                        <ul class="flexitem">
+                            <li>
+                                <a href="#">
+                                    <i class="ri-bar-chart-line"></i>
+                                    <span>Trending</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-user-6-line"></i>
+                                    <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#0" class="t-search">
+                                    <i class="ri-search-line"></i>
+                                    <span>Search</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="search-bottom desktop-hide">
+            <div class="container">
+                <div class="wrapper">
+                    <form action="" class="search">
+                        <a href="#0" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+                        <span class="icon-large"><i class="ri-search-line"></i></span>
+                        <input type="search" placeholder="Search NetView">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </h4>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <script>
+        function clickimg(smallImg){
+            var fullImg = document.getElementById("imagebox");
+            fullImg.src = smallImg.src
+        }
+    </script>
+    
+    
+</body>
+</html>

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate
+from django.contrib.auth import login as user_login
 from django.contrib.auth.decorators import login_required
 from items.models import Item
 from .models import Detail
@@ -10,11 +11,12 @@ from django.core.mail import send_mail
 from datetime import date
 import datetime
 from django.views.decorators.csrf import csrf_exempt
+from django.core.paginator import Paginator
 
 # Create your views here.
 @csrf_exempt
 def homepage(request):
-    return render(request,'home1.html')
+    return render(request,'index.html')
 
 @csrf_exempt
 def search(request):
@@ -23,11 +25,11 @@ def search(request):
         items = Item.objects.filter(name__contains=searched)
         print(searched)
         if items:
-            return render(request,'search.html', {'items':items})
+            return render(request,'search_all.html', {'items':items})
         else:
-            return render(request,'search.html', {'searched':searched})
+            return render(request,'search_all.html', {'searched':searched})
     else:
-        return render(request,'search.html', {})
+        return render(request,'search_all.html', {})
 
 @csrf_exempt
 def login(request):
@@ -165,7 +167,6 @@ def pastConfigurations(request):
             pass
     # print("hy")
 
-@login_required(login_url='login')
 def home(request):
     items = Item.objects.all()
     today = date.today()
@@ -187,8 +188,17 @@ def home(request):
         # print("-------")
     pastConfigurations(request)
     sendMailTowinners(request)
-    items = Item.objects.filter(status="live")
-    return render(request,"home.html",{'items':items})
+
+    pagy = Item.objects.filter(status="live")
+    categ =Item.objects.filter(status="live").first()
+
+    #set pagination stuff
+    p = Paginator(pagy, 2)
+    page = request.GET.get('page')
+    items = p.get_page(page)
+
+
+    return render(request,"view_all.html",{'items':items,'categ':categ})
     
 def logout(request):
     auth.logout(request)
@@ -210,7 +220,7 @@ def myprofile(request):
     contact=""
     for i in obj:
         contact = i.contact
-    return render(request,"myprofile.html",{"details":details,"contact":contact})
+    return render(request,"acc_details.html",{"details":details,"contact":contact})
 
 @login_required(login_url='login')
 def log(request):
@@ -224,9 +234,34 @@ def log(request):
     pitem = Item.objects.filter(ownermail=cmail).filter(status="past") 
     litem = Item.objects.filter(ownermail=cmail).filter(status="live") 
     fitem = Item.objects.filter(ownermail=cmail).filter(status="future") 
-    return render(request,"log.html",{'pitem':pitem,'litem':litem,'fitem':fitem,"biddeditem":biddeditem})
+    return render(request,"logs_new.html",{'pitem':pitem,'litem':litem,'fitem':fitem,"biddeditem":biddeditem})
 
 @login_required(login_url='login')
 def future(request):
     items = Item.objects.filter(status="future")
     return render(request,"future.html",{"items":items})
+
+def change_pass(request):
+    
+    context = {}
+    
+    if request.method == 'POST':
+        current = request.POST["old_password"]
+        new_pass = request.POST["new_password1"]
+        
+        user = User.objects.get(id=request.user.id)
+        un = user.username
+        
+        check = user.check_password(current)
+        if check==True:
+            user.set_password(new_pass)
+            user.save()
+            context['msz'] = "Password Chaged successfully"
+            context['col'] = "alert-success"
+            user = User.objects.get(username=un)
+            user_login(request,user)
+        else:
+            context['msz'] = "Incorrect current password"
+            context['col'] = "alert-danger"
+    print(current,new_pass)
+    return render(request,"acc_details.html",context)

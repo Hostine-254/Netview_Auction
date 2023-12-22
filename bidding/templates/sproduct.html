@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="css/font-awesome.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Halant&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <section id="header">
@@ -18,13 +27,13 @@
             <!--<li><a href="shop.html">Consult & Inquire</a></li>-->
             <li><a href="bids.html">Bid Shop</a></li>
             <li><a href="about.html">Repair & serv</a></li>
-            <li><a href="contact.html">About</a></li>
+            <li style="margin-left: 60px"><a href="contact.html">About</a></li>
             <!--<li><a href="cart.html"><i class="fa fa-cart-shopping"></i></i></a></li>-->
         </ul>
           
       </div>
         
-      <div class="nav-search">
+      <div class="nav-search search-home">
         <select >
             <option >All</option>
         </select>
@@ -71,10 +80,14 @@
 
         </div>
 
-        <div class="single-pro-details">
+        <div class="single-pro-details">s
             <h4 class="tag1">{{item.name}} <span>({{item.tag}})</span></h4>
             <h4 class="tag2">Product Details</h4>
             <span>{{item.long_description}}</span>
+            <h4 class="tag2">Condition Review</h4>
+            <span>{{item.short_description}}</span>
+            <h4 class="tag2">Conditions of bussiness</h4>
+            <span> Please note that NetView does not guarantee the future working of the mecharndise.</span>
             <h3 class="tag2">Current Price</h3>
             <h2>Shs {{item.currentPrice}}</h2>
             <a href="biditem?id={{item.id}}"><button>Place a Bid</button></a>
@@ -83,8 +96,8 @@
 
     </section>
 
-    <section id="product1" class="section-p1">
-    <div class="banner2">
+    <section style="margin-top: 90px;" id="product1" class="section-p1">
+    <div style="margin-bottom: -120px" class="banner2">
         <h3>In Association with</h3>
         <img src="../media/pics/bid_journey auctions.jpg" alt="">
     </div>

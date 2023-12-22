@@ -23,6 +23,17 @@
     border: 1px solid #209471;
     border-radius: 10px;
 }
+center{
+    position: absolute;
+    top: 24%;
+    left: 20%;
+    font-size: 14px;
+    background-color: #91e1e4;
+    border-radius: 3.5px;
+    padding: 5px;
+    font-weight: lighter;
+
+}
 .input-grp{
     top: 90px;
     left: 40px;
@@ -82,7 +93,7 @@
 }
 .forget-btn{
     width: 51%;
-    padding: 10px 30px;
+    padding: 10px 5px;
     height: 14px;
     cursor: pointer;
     display: block;
@@ -249,4 +260,13 @@ img{
 }
 
 /* Small devices */
+@media screen and (max-width: 480px){
+    .container{
+        width: 322px;
+    }
+    .container2{
+        width: 322px;
+    }
+
+}
 

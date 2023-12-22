@@ -17,6 +17,7 @@ urlpatterns = [
     path('myprofile',views.myprofile,name="myprofile"),
     path('future',views.future,name="future"),
     path('log',views.log,name="log"),
+    path('pass_reset',views.change_pass,name="pass_reset"),
     
     # forgot   
     path('password-reset/',
